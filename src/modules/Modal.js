@@ -4,7 +4,7 @@ export default class Modal {
     this.openBtn = document.querySelector(openBtn);
     this.closeBtn = document.querySelector(closeBtn);
     this.classActive = 'active';
-    
+
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
     this.clickOut = this.clickOut.bind(this);
@@ -20,8 +20,7 @@ export default class Modal {
   }
 
   clickOut(e) {
-    if (e.target === this.containerModal)
-      this.close();
+    if (e.target === this.containerModal) this.close();
   }
 
   addModalEvent() {
