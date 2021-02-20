@@ -9,23 +9,17 @@ export default class UpdateBalance {
   }
 
   incomes() {
-    let income = 0;
-    this.values.forEach((transaction) => {
-      if (transaction.amount > 0) {
-        income += transaction.amount;
-      }
-    });
-    return income;
+    return this.values
+        .map(({amount}) => amount)
+        .filter((amount) => amount > 0)
+        .reduce((sum, amount) => sum + amount, 0);
   }
 
   expenses() {
-    let expense = 0;
-    this.values.forEach((transaction) => {
-      if (transaction.amount < 0) {
-        expense += transaction.amount;
-      }
-    });
-    return expense;
+    return this.values
+        .map(({amount}) => amount)
+        .filter((amount) => amount < 0)
+        .reduce((sum, amount) => sum + amount, 0);
   }
 
   total() {
